@@ -13,7 +13,7 @@ function db_conn(){
          $db_host = "localhost"; //DBホスト
          $pdo = new PDO('mysql:dbname='.$db_name.';charset=utf8;host='.$db_host, $db_id, $db_pw);
         // $pdo = new PDO('mysql:dbname=gs_story;charset=utf8;host=localhost','root','');
-        // $pdo = new PDO('mysql:dbname=gsdeploy_unit4;charset=utf8;host=mysql80.gsdeploy.sakura.ne.jp','gsdeploy','8130mama');
+     
         return $pdo;
     } catch (PDOException $e) {
         exit('DB Connection Error:'.$e->getMessage());
