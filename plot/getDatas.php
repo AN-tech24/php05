@@ -1,8 +1,11 @@
 <?php
-$url = $_SERVER['REQUEST_URI'];
+include('./dbConfig.php'); // DB設定ファイルをインクルード
 
-
+try {
+    $db = db_conn(); // データベース接続を取得
+    $url = $_SERVER['REQUEST_URI'];
     $uri = $_SERVER['REQUEST_URI'];
+
     if (strpos($uri, 'imageDetail.php') !== false) {
         // imageDetail.phpのリクエストに対する処理
         $imageId = isset($_GET['id']) ? $_GET['id'] : null;
@@ -25,7 +28,7 @@ $url = $_SERVER['REQUEST_URI'];
         $sth->execute();
         $data = $sth->fetchAll();
     }
-    
+
     // データを返す
     return $data;
 
